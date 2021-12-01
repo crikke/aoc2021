@@ -8,9 +8,7 @@ import (
 )
 
 func Test_Part1(t *testing.T) {
-
 	count := 0
-
 	for i := 1; i < len(measures); i++ {
 
 		if measures[i-1] < measures[i] {
