@@ -21,7 +21,6 @@ int main()
     while (fscanf(fp, "%s", op) == 1)
     {
         int c;
-
         fscanf(fp, "%d", &c);
 
         if (op[0] == 'f')
@@ -33,13 +32,11 @@ int main()
         {
             pos.Aim += c;
             pos.Depth += c;
-
         }
         else if (op[0] == 'u')
         {
             pos.Aim -= c;
             pos.Depth -= c;
-
         }
         else
         {
