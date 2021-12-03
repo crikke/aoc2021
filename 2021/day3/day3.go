@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	gamma, epsilon := day3(input)
+	gamma, epsilon := part1(input)
 	fmt.Println(gamma * epsilon)
 	fmt.Println(gamma)
 	fmt.Println(epsilon)
@@ -20,9 +20,8 @@ func main() {
 	fmt.Println(co2)
 }
 
-func day3(input string) (gamma, epsilon int64) {
+func part1(input string) (gamma, epsilon int) {
 	num := strings.Split(input, "\n")
-
 	occ := make([]int, len(num[0]))
 
 	for _, str := range num {
@@ -34,19 +33,15 @@ func day3(input string) (gamma, epsilon int64) {
 		}
 	}
 
-	out := ""
-
 	for i := 0; i < len(occ); i++ {
 		if occ[i] > len(num)/2 {
-			out += "1"
+			gamma += int(math.Pow(2, float64(len(occ)-i-1)))
 			continue
 		}
-		out += "0"
 	}
 
-	gamma, _ = strconv.ParseInt(out, 2, 0)
-	epsilon, _ = strconv.ParseInt(out, 2, 0)
-	epsilon ^= int64((math.Pow(2, float64(len(occ)))) - 1)
+	epsilon = gamma
+	epsilon ^= int((math.Pow(2, float64(len(occ)))) - 1)
 
 	return
 }

@@ -20,10 +20,10 @@ func TestPart1(t *testing.T) {
 00010
 01010`
 
-	gamma, epsilon := day3(testinput)
+	gamma, epsilon := part1(testinput)
 
-	assert.Equal(t, int64(22), gamma)
-	assert.Equal(t, int64(9), epsilon)
+	assert.Equal(t, 22, gamma)
+	assert.Equal(t, 9, epsilon)
 }
 
 func TestPart2(t *testing.T) {
