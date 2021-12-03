@@ -54,7 +54,6 @@ func day3(input string) (gamma, epsilon int64) {
 func part2(in string) (oxygen, co2 int) {
 	input := strings.Split(in, "\n")
 
-	// add an extra leading 0 to the numbers to use as root
 	bitCount := len(input[0])
 	root := node{}
 	for _, item := range input {
@@ -77,33 +76,33 @@ type node struct {
 	key   int
 }
 
-func (n *node) insert(data int, position int) {
+func (n *node) insert(data int, bit int) {
 	n.size++
 
-	// position 0 means that this is a leaf and in that case
+	// bit 0 means that this is a leaf and in that case
 	// store data as key
-	if position == 0 {
+	if bit == 0 {
 		n.key = data
 		return
 	}
 
 	// get bit at position
-	bit := math.Pow(2, float64(position)-1)
+	b := math.Pow(2, float64(bit)-1)
 
 	// check if bit is 1
-	if data&int(bit) == int(bit) {
+	if data&int(b) == int(b) {
 
 		if n.right == nil {
 			n.right = &node{}
 		}
 
-		n.right.insert(data, position-1)
+		n.right.insert(data, bit-1)
 		return
 	} else {
 		if n.left == nil {
 			n.left = &node{}
 		}
-		n.left.insert(data, position-1)
+		n.left.insert(data, bit-1)
 	}
 }
 
