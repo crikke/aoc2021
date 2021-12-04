@@ -46,8 +46,10 @@ func part1(input string) (gamma, epsilon int) {
 	return
 }
 
-// insering items should be at worst O(n)
-// getting min/max should be O(h) where h = tree depth
+// implemented by what i belive is an max heap
+// insering items should be O(n)
+// .. or is it also O(k)? since each element only needs to travel through its parent 
+// getting min/max should be O(k) where k = tree depth
 func part2(in string) (oxygen, co2 int) {
 	input := strings.Split(in, "\n")
 
