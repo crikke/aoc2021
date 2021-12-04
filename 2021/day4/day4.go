@@ -28,6 +28,12 @@ func main() {
 	fmt.Println(losingNumber * losingSum)
 }
 
+// implemented by using a reverse index
+// where key is number and value is the corresponding position in the board
+// to check for bingo, create 2 arrays cX,cY.
+// iterate through each number and get its position on the board.
+// increase cX[position.x] & cY[position.y] by 1
+// if cX or cY == 5, https://www.youtube.com/watch?v=Zk5Il6KQrd8
 func day4(input string) (winningNumber, winningSum, losingNumber, losingSum int) {
 	inputRows := strings.Split(input, "\n")
 	index := indexInput(inputRows)
