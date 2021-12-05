@@ -36,7 +36,6 @@ func main() {
 // if cX or cY == 5, https://www.youtube.com/watch?v=Zk5Il6KQrd8
 //
 // I guess time complexity for a board should be
-// O(n) for insertion
 // O(1) for getting position
 func day4(input string) (winningNumber, winningSum, losingNumber, losingSum int) {
 	inputRows := strings.Split(input, "\n")
