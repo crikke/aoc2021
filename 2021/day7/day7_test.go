@@ -12,11 +12,9 @@ func TestPart1(t *testing.T) {
 	assert.Equal(t, 37, fuel)
 }
 
-// dagens var inte jättebra..
-// testdatan ska rundas uppåt mean = 4.9 ska bli 5
-// medans riktiga ska rundas nedåt, 464.567 blir 464
+// mean fungerar += 1, gör bättre lösning när jag har tid
 func TestPart2(t *testing.T) {
-	_, fuel := day7(input)
+	_, fuel := day7(testinput)
 
 	assert.Equal(t, 168, fuel)
 }
