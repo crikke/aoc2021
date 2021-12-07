@@ -48,7 +48,7 @@ func part1(input string) (gamma, epsilon int) {
 
 // implemented by what i belive is an max heap
 // insering items should be O(n)
-// .. or is it also O(k)? since each element only needs to travel through its parent 
+// .. or is it also O(k)? since each element only needs to travel through its parent
 // getting min/max should be O(k) where k = tree depth
 func part2(in string) (oxygen, co2 int) {
 	input := strings.Split(in, "\n")
@@ -73,6 +73,31 @@ type node struct {
 	right *node
 	size  int
 	key   int
+}
+
+func (n *node) Out() []int {
+	arr := make([]int, n.size)
+
+	i := 0
+	n.traverse(arr, &i)
+
+	return arr
+}
+
+func (n *node) traverse(arr []int, idx *int) {
+
+	if n.left != nil {
+		n.left.traverse(arr, idx)
+	}
+
+	if n.right != nil {
+		n.right.traverse(arr, idx)
+	}
+
+	if n.key != 0 {
+		arr[*idx] = n.key
+		*idx++
+	}
 }
 
 func (n *node) insert(data int, bit int) {
