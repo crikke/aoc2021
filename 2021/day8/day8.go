@@ -56,7 +56,7 @@ func day8(input string) (sum1, sum2 int) {
 
 		nums := [10]int{}
 		idx := 0
-		for bits, _ := range set {
+		for bits := range set {
 			if bits == 0 {
 				continue
 			}
